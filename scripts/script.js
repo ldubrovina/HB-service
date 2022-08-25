@@ -73,3 +73,18 @@ buttonWomen.addEventListener("click", changeToWomen);
 buttonText.addEventListener("click", changeText);
 buttonImage.addEventListener("click", changeImage);
 getDataToCard();
+
+const cardWrapper = document.querySelector(".card__wrapper");
+cardWrapper.addEventListener("click", () => {
+  const newWindow = window.open(
+    "",
+    "",
+    `width=840, height=520, top=${screen.height / 2 - 260},
+    left=${screen.width / 2 - 420}`
+  );
+  html2canvas(cardWrapper).then((canvas) => {
+    canvas.style.maxWidth = "100%";
+    canvas.style.height = "auto";
+    newWindow.document.body.append(canvas);
+  });
+});
